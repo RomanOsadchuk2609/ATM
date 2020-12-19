@@ -16,6 +16,7 @@ import org.dizitart.no2.objects.ObjectRepository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -39,7 +40,7 @@ public class CardServiceImpl implements CardService {
 	void init() {
 		cardRepository = nitriteConnectionProvider.getDataBase().getRepository(Card.class);
 		if (findAll().isEmpty()) {
-			List<NewCard> newCards = List.of(
+			List<NewCard> newCards = Arrays.asList(
 					new NewCard("1111222233334444", "111122223333444400", "1111", 1000),
 					new NewCard("5555666677778888", "555566667777888800", "2222", 2000),
 					new NewCard("9999000011112222", "999900001111222200", "3333", 3000)
